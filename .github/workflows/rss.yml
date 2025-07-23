@@ -2,7 +2,7 @@ name: RSS Weather to GCP
 
 on:
   schedule: 
-    - cron: '*/1 * * * *'  # Every 1 minute
+    - cron: '* * * * *'  # Every 1 minute
   workflow_dispatch:
 
 jobs:
