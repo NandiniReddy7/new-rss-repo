@@ -1,7 +1,7 @@
 name: RSS Weather to GCP
 
 on:
-  schedule:
+  schedule: 
     - cron: '*/1 * * * *'  # Every 1 minute
 
 jobs:
