@@ -1,3 +1,5 @@
 requests
 xmltodict
 toml
+google-cloud-pubsub
+google-cloud-storage
