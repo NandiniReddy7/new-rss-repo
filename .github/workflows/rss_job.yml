@@ -5,7 +5,7 @@ on:
     - cron: '*/1 * * * *'  # Every minute
 
 jobs:
-  rss-fetch:
+  rss-fetch: 
     runs-on: ubuntu-latest
 
     permissions:
