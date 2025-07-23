@@ -1,11 +1,11 @@
-name: RSS Weather Pipeline
+name: RSS Weather to GCP
 
 on:
   schedule:
-    - cron: '* * * * *'  # Every minute
+    - cron: '*/1 * * * *'  # Every 1 minute
 
 jobs:
-  rss-fetch: 
+  rss-pipeline:
     runs-on: ubuntu-latest
 
     permissions:
@@ -13,24 +13,25 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
- 
+
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install requests toml xmltodict google-cloud-pubsub google-cloud-storage
 
       - name: Authenticate to GCP
         uses: google-github-actions/auth@v2
         with:
           credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
-      - name: Set up gcloud
+      - name: Set up gcloud CLI
         uses: google-github-actions/setup-gcloud@v2
 
-      - name: Run weather script
+      - name: Run RSS Script
         run: python scripts/rss_worker.py
