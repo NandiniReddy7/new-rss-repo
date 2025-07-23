@@ -28,7 +28,7 @@ try:
     json_payload = json.dumps(json_data)
 
     # Google Cloud Setup
-    project_id = os.environ.get("exalted-kit-465905-n2")
+    project_id = os.environ.get("GOOGLE_CLOUD_PROJECT")
     if not project_id:
         raise ValueError("GOOGLE_CLOUD_PROJECT environment variable not set.")
 
