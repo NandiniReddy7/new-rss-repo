@@ -2,7 +2,7 @@ name: RSS Weather Pipeline
 
 on:
   schedule:
-    - cron: '*/1 * * * *'  # Every minute
+    - cron: '* * * * *'  # Every minute
 
 jobs:
   rss-fetch: 
